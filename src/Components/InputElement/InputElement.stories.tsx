@@ -1,5 +1,4 @@
 import InputElement from './InputElement';
-import styles from './InputElement.module.css';
 
 export default {
   component: InputElement,
