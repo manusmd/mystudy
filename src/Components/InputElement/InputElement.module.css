@@ -1,0 +1,15 @@
+.inputElement {
+  width: 80%;
+  border: none;
+  background-color: var(--input-bg-color);
+  border-radius: var(--default-border-radius);
+  text-align: center;
+}
+
+.small {
+  height: 1.5rem;
+}
+
+.medium {
+  height: 2rem;
+}
