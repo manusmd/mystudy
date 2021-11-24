@@ -31,5 +31,5 @@ h3 {
   --secondary-text-color: #858585;
   --input-bg-color: #d2edc8;
   --primary-font: 'Roboto', sans-serif;
-  --default-border-radius: 1rem;
+  --default-border-radius: 0.5rem;
 }
