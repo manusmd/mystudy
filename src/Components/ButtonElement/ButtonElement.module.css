@@ -1,0 +1,18 @@
+.buttonElement {
+  height: 2rem;
+  border: none;
+  width: 80%;
+  border-radius: var(--default-border-radius);
+  font-weight: bold;
+}
+
+.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.inactive {
+  background-color: var(--primary-bg-color);
+  color: var(--secondary-text-color);
+  font-weight: bold;
+}
