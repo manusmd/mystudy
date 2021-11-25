@@ -1,20 +1,19 @@
+import { ButtonHTMLAttributes } from 'react';
 import styles from './ButtonElement.module.css';
 
 type ButtonElementProps = {
-  placeholder: string;
+  text: string;
   variant: string;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function ButtonElement({
-  placeholder,
+  text,
   variant,
+  ...props
 }: ButtonElementProps) {
   return (
-    <button
-      type="submit"
-      className={`${styles[variant]} ${styles.buttonElement}`}
-    >
-      {placeholder}
+    <button {...props} className={`${styles[variant]} ${styles.buttonElement}`}>
+      {text}
     </button>
   );
 }

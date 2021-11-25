@@ -45,7 +45,7 @@ export default function Login() {
           type="password"
           size="medium"
         />
-        <ButtonElement placeholder="Login" variant="primary" />
+        <ButtonElement type="submit" text="Login" variant="primary" />
       </form>
     </div>
   );
