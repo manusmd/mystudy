@@ -5,7 +5,7 @@ import { FormEvent, useState } from 'react';
 
 export default function Login() {
   const [mail, setMail] = useState<string | null>('');
-  const [password, setPassword] = useState<string | null>('');
+  const [password, setPassword] = useState<string>('');
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -45,7 +45,7 @@ export default function Login() {
           type="password"
           size="medium"
         />
-        <ButtonElement placeholder="Login" type="active" />
+        <ButtonElement placeholder="Login" variant="primary" />
       </form>
     </div>
   );

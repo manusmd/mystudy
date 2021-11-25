@@ -2,15 +2,18 @@ import styles from './ButtonElement.module.css';
 
 type ButtonElementProps = {
   placeholder: string;
-  type: string;
+  variant: string;
 };
 
 export default function ButtonElement({
   placeholder,
-  type,
+  variant,
 }: ButtonElementProps) {
   return (
-    <button type="submit" className={`${styles[type]} ${styles.buttonElement}`}>
+    <button
+      type="submit"
+      className={`${styles[variant]} ${styles.buttonElement}`}
+    >
       {placeholder}
     </button>
   );
