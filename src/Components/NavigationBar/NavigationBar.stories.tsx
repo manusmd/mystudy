@@ -5,4 +5,4 @@ export default {
   title: 'Components/NavigationBar',
 };
 
-export const Active = () => <NavigationBar />;
+export const Default = () => <NavigationBar />;

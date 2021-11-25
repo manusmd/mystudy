@@ -2,4 +2,13 @@
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  place-items: center;
+}
+
+.homeCircle {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  width: max-content;
+  height: max-content;
+  padding: 1rem;
 }
