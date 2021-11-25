@@ -10,7 +10,7 @@ export default function ButtonElement({
   type,
 }: ButtonElementProps) {
   return (
-    <button className={`${styles[type]} ${styles.buttonElement}`}>
+    <button type="submit" className={`${styles[type]} ${styles.buttonElement}`}>
       {placeholder}
     </button>
   );
