@@ -5,7 +5,7 @@ export default {
   title: 'Components/ButtonElement',
 };
 
-export const Active = () => <ButtonElement placeholder="Login" type="active" />;
+export const Active = () => <ButtonElement text="Login" variant="active" />;
 export const Inactive = () => (
-  <ButtonElement placeholder="Cancel" type="inactive" />
+  <ButtonElement text="Cancel" variant="secondary" />
 );
