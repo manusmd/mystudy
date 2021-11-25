@@ -5,21 +5,21 @@ type InputElementProps = {
   size: string;
   placeholder: string;
   type: string;
-  setOnChange: (event: string) => void;
+  onChange: (value: string) => void;
 };
 
 export default function InputElement({
   size,
   placeholder,
   type,
-  setOnChange,
+  onChange,
 }: InputElementProps) {
   return (
     <input
       className={`${styles[size]} ${styles.inputElement}`}
       placeholder={placeholder}
       type={type}
-      onChange={(event) => setOnChange(event.target.value)}
+      onChange={(event) => onChange(event.target.value)}
     />
   );
 }

@@ -10,7 +10,7 @@ export const Small = () => (
     size="small"
     placeholder="username"
     type="text"
-    setOnChange={(event) => console.log(event)}
+    onChange={(value) => console.log(value)}
   />
 );
 export const Medium = () => (
@@ -19,13 +19,13 @@ export const Medium = () => (
       size="medium"
       placeholder="username"
       type="text"
-      setOnChange={(event) => console.log(event)}
+      onChange={(value) => console.log(value)}
     />
     <InputElement
       size="medium"
       placeholder="password"
       type="password"
-      setOnChange={(event) => console.log(event)}
+      onChange={(value) => console.log(value)}
     />
   </div>
 );
