@@ -1,24 +1,25 @@
+import React from 'react';
 import styles from './InputElement.module.css';
 
 type InputElementProps = {
   size: string;
   placeholder: string;
   type: string;
-  onChange: (input: string) => void;
+  setOnChange: (event: string) => void;
 };
 
 export default function InputElement({
   size,
   placeholder,
   type,
-  onChange,
+  setOnChange,
 }: InputElementProps) {
   return (
     <input
       className={`${styles[size]} ${styles.inputElement}`}
       placeholder={placeholder}
       type={type}
-      onChange={(event) => onChange(event.target.value)}
+      onChange={(event) => setOnChange(event.target.value)}
     />
   );
 }
