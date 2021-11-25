@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  grid-template-rows: 1fr 3fr 3fr 1fr;
+  height: 100vh;
+  place-items: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+}
+
+.loginForm {
+  display: grid;
+  width: 100%;
+  gap: 1rem;
+  justify-items: center;
+}
