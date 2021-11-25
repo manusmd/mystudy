@@ -10,7 +10,7 @@
     "build-server": "tsc --project server/tsconfig.json",
     "build-storybook": "build-storybook -o dist/storybook",
     "serve": "vite preview",
-    "lint": "stylelint \"**/*.css\" && eslint . && prettier . --check",
+    "lint": "stylelint \"**/*.css\" && eslint . && prettier . --check && tsc --noEmit",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
     "lint-fix": "stylelint \"**/*.css\" --fix && eslint . --fix && prettier . --check",
