@@ -35,7 +35,7 @@ export default function Login() {
       <form onSubmit={handleSubmit} className={styles.loginForm}>
         <InputElement
           onChange={setMail}
-          placeholder="username"
+          placeholder="mail"
           type="text"
           size="medium"
         />
