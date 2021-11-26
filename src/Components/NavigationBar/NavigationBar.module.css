@@ -6,10 +6,18 @@
 }
 
 .homeCircle {
-  background-color: var(--primary-color);
   border-radius: 50%;
   width: max-content;
   height: max-content;
   padding: 1rem;
   margin: 0 1rem;
+}
+
+.homeCircleActive {
+  filter: drop-shadow(0 0 0.5rem black);
+  background-color: var(--primary-color);
+}
+
+.homeCircleInactive {
+  background-color: var(--primary-color-light);
 }

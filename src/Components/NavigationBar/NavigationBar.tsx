@@ -33,7 +33,15 @@ export default function NavigationBar({ activeLink }: NavigationBarProps) {
           />
         </Link>
         <Link to="/home">
-          <div className={styles.homeCircle}>
+          <div
+            className={`${styles.homeCircle} ${
+              styles[
+                activeLink === 'home'
+                  ? 'homeCircleActive'
+                  : 'homeCircleInactive'
+              ]
+            }`}
+          >
             <HomeIcon />
           </div>
         </Link>
