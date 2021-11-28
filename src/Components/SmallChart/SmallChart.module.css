@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  width: 40%;
+  height: 15rem;
+  filter: drop-shadow(0 0 0.7rem grey);
+  background-color: var(--primary-bg-color);
+  padding: 0.5rem;
+}
