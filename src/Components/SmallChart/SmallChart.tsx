@@ -2,12 +2,18 @@ import Chart from 'react-apexcharts';
 import styles from './SmallChart.module.css';
 
 type smallChartProps = {
+  chartTitle?: string;
   label: 'teachers' | 'students';
   data: number[];
   labels: string[];
 };
 
-export default function SmallChart({ label, data, labels }: smallChartProps) {
+export default function SmallChart({
+  chartTitle,
+  label,
+  data,
+  labels,
+}: smallChartProps) {
   const chartProps = {
     options: {
       labels: [...labels],
@@ -24,7 +30,9 @@ export default function SmallChart({ label, data, labels }: smallChartProps) {
           enabled: false,
         },
       },
-
+      chart: {
+        redrawOnWindowResize: true,
+      },
       plotOptions: {
         pie: {
           customScale: 1.2,
@@ -34,11 +42,11 @@ export default function SmallChart({ label, data, labels }: smallChartProps) {
             size: '60%',
             labels: {
               show: true,
-              value: { fontSize: '1rem' },
+              value: { fontSize: '0.7rem' },
               total: {
                 show: true,
                 showAlways: true,
-                fontSize: '1rem',
+                fontSize: '0.8rem',
                 label: `${label}`,
               },
             },
@@ -51,6 +59,7 @@ export default function SmallChart({ label, data, labels }: smallChartProps) {
 
   return (
     <div className={styles.container}>
+      <h3 className={styles.chartTitle}>{chartTitle}</h3>
       <Chart
         options={chartProps.options}
         series={chartProps.series}
