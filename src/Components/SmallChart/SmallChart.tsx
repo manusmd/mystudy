@@ -18,7 +18,7 @@ export default function SmallChart({
     options: {
       labels: [...labels],
       legend: {
-        position: 'bottom',
+        position: 'bottom' as const,
       },
       dataLabels: {
         enabled: true,
