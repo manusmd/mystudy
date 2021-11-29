@@ -1,5 +1,5 @@
 import ApexCharts from 'apexcharts';
-import React, { CSSProperties, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './SmallChart.module.css';
 
 type smallChartProps = {
