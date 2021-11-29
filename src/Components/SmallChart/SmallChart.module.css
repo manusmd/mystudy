@@ -5,8 +5,7 @@
   height: max-content;
   filter: drop-shadow(0 0 0.7rem grey);
   background-color: var(--primary-bg-color);
-  padding-left: 0.1rem;
-  padding-right: 0.1rem;
+  padding: 0 0.1rem;
   place-items: center;
 }
 
