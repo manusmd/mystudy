@@ -5,4 +5,5 @@ export default {
   title: 'Components/TitleElement',
 };
 
-export const Title = () => <TitleElement title="Students" />;
+export const Students = () => <TitleElement title="Students" />;
+export const Teachers = () => <TitleElement title="Teachers" />;
