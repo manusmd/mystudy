@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  border-radius: 1rem;
+  width: 40%;
+  height: max-content;
+  filter: drop-shadow(0 0 0.7rem grey);
+  background-color: var(--primary-bg-color);
+  padding: 0 0.1rem;
+  place-items: center;
+}
+
+@media only screen and (min-width: 450px) {
+  .container {
+    padding: 1rem;
+  }
+}
+
+.chartTitle {
+  text-align: center;
+  margin: 0.5rem 0 0;
+}
+
+.chart {
+  padding-bottom: 1rem;
+  height: 100%;
+}
