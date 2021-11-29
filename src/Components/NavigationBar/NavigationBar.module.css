@@ -1,0 +1,23 @@
+.navigationBar {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, 1fr);
+  place-items: center;
+}
+
+.homeCircle {
+  border-radius: 50%;
+  width: max-content;
+  height: max-content;
+  padding: 1rem;
+  margin: 0 1rem;
+}
+
+.homeCircleActive {
+  filter: drop-shadow(0 0 0.5rem black);
+  background-color: var(--primary-color);
+}
+
+.homeCircleInactive {
+  background-color: var(--primary-color-light);
+}

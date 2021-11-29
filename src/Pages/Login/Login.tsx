@@ -15,7 +15,7 @@ export default function Login() {
     formdata.append('password', `${password}`);
 
     try {
-      const response = await fetch('http://server.manu-web.de/auth/local', {
+      const response = await fetch('https://server.manu-web.de/auth/local', {
         method: 'POST',
         body: formdata,
       });

@@ -1,8 +1,11 @@
+import { Routes, Route } from 'react-router';
+import Login from './Pages/Login/Login';
+
 function App() {
   return (
-    <>
-      <h1>Hello World</h1>
-    </>
+    <Routes>
+      <Route path="/" element={<Login />} />
+    </Routes>
   );
 }
 
