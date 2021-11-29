@@ -1,6 +1,5 @@
 .container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   border-radius: 1rem;
   width: 40%;
   height: max-content;
@@ -8,6 +7,7 @@
   background-color: var(--primary-bg-color);
   padding-left: 0.1rem;
   padding-right: 0.1rem;
+  place-items: center;
 }
 
 @media only screen and (min-width: 450px) {
@@ -18,5 +18,11 @@
 
 .chartTitle {
   text-align: center;
-  margin-bottom: 0;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.chart {
+  padding-bottom: 1rem;
+  height: 100%;
 }

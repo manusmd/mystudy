@@ -7,7 +7,6 @@ export default {
 
 export const Default = () => (
   <SmallChart
-    chartTitle="Students"
     label="students"
     data={[10, 14, 5]}
     labels={['male', 'female', 'others']}
