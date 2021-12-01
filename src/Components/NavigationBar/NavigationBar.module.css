@@ -1,8 +1,13 @@
 .navigationBar {
+  position: fixed;
+  bottom: 0;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(5, 1fr);
   place-items: center;
+  padding-top: 0.5rem;
+  background-color: var(--primary-bg-color);
+  height: 20%;
 }
 
 .homeCircle {
