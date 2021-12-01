@@ -10,5 +10,6 @@ export const Default = () => (
     label="students"
     data={[10, 14, 5]}
     labels={['male', 'female', 'others']}
+    showTotal={false}
   />
 );
