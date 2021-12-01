@@ -11,6 +11,7 @@ import { StudentsType, TeachersType } from '../../utils/types';
 
 export default function Dashboard(): JSX.Element {
   const [allStudents, setAllStudents] = useState<StudentsType[]>([]);
+  const [allTeachers, setAllTeachers] = useState<TeachersType[]>([]);
 
   useEffect(() => {
     const studentsFetch = async () => {
@@ -20,7 +21,14 @@ export default function Dashboard(): JSX.Element {
 
       setAllStudents(studentsBody);
     };
+    const teachersFetch = async () => {
+      const teachersBody = await fetchAPI(
+        'https://server.manu-web.de/teachers'
+      );
+      setAllTeachers(teachersBody);
+    };
     studentsFetch();
+    teachersFetch();
   }, []);
 
   const studentCount = prepareGenderCount(allStudents);
