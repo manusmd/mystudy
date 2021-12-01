@@ -3,19 +3,11 @@ import TitleElement from '../../Components/TitleElement/TitleElement';
 import SmallChart from '../../Components/SmallChart/SmallChart';
 import { useEffect, useState } from 'react';
 import fetchAPI from '../../utils/fetchAPI';
+import { prepareGenderCount } from '../../utils/prepareData';
+import { StudentsType } from '../../utils/types';
 
-type StudentsProps = {
-  id?: number;
-  lastname: string;
-  surname: string;
-  gender: 'male' | 'female' | 'others';
-  address: string;
-  phone: string;
-  groups: string[];
-  subjects: string[];
-};
 export default function Dashboard(): JSX.Element {
-  const [allStudents, setAllStudents] = useState<StudentsProps[]>([]);
+  const [allStudents, setAllStudents] = useState<StudentsType[]>([]);
 
   useEffect(() => {
     const studentsFetch = async () => {
