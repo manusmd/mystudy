@@ -3,8 +3,11 @@ import TitleElement from '../../Components/TitleElement/TitleElement';
 import SmallChart from '../../Components/SmallChart/SmallChart';
 import { useEffect, useState } from 'react';
 import fetchAPI from '../../utils/fetchAPI';
-import { prepareGenderCount } from '../../utils/prepareData';
-import { StudentsType } from '../../utils/types';
+import {
+  prepareGenderCount,
+  prepareTeachersPerSubject,
+} from '../../utils/prepareData';
+import { StudentsType, TeachersType } from '../../utils/types';
 
 export default function Dashboard(): JSX.Element {
   const [allStudents, setAllStudents] = useState<StudentsType[]>([]);
