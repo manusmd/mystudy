@@ -2,6 +2,7 @@ import styles from './Dashboard.module.css';
 import TitleElement from '../../Components/TitleElement/TitleElement';
 import SmallChart from '../../Components/SmallChart/SmallChart';
 import { useEffect, useState } from 'react';
+import fetchAPI from '../../utils/fetchAPI';
 
 type StudentsProps = {
   id?: number;
@@ -18,15 +19,10 @@ export default function Dashboard(): JSX.Element {
 
   useEffect(() => {
     const studentsFetch = async () => {
-      const responseStudents = await fetch(
-        'https://server.manu-web.de/students',
-        {
-          headers: {
-            Authorization: `Bearer ${sessionStorage.getItem('jwt')}`,
-          },
-        }
+      const studentsBody = await fetchAPI(
+        'https://server.manu-web.de/students'
       );
-      const studentsBody = await responseStudents.json();
+
       setAllStudents(studentsBody);
     };
     studentsFetch();
@@ -51,7 +47,7 @@ export default function Dashboard(): JSX.Element {
       <SmallChart
         label={'students'}
         data={[studentCount.male, studentCount.female, studentCount.others]}
-        labels={['male', 'male', 'others']}
+        labels={['male', 'female', 'others']}
       />
     </>
   );
