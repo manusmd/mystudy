@@ -8,6 +8,7 @@ import {
   prepareTeachersPerSubject,
 } from '../../utils/prepareData';
 import { StudentsType, TeachersType } from '../../utils/types';
+import NavigationBar from '../../Components/NavigationBar/NavigationBar';
 
 export default function Dashboard(): JSX.Element {
   const [allStudents, setAllStudents] = useState<StudentsType[]>([]);
@@ -35,22 +36,27 @@ export default function Dashboard(): JSX.Element {
   return (
     <>
       <TitleElement title="Dashboard" />
-      <SmallChart
-        label={'students'}
-        data={[
-          studentGenderCount.male,
-          studentGenderCount.female,
-          studentGenderCount.others,
-        ]}
-        labels={['male', 'female', 'others']}
-        showTotal={true}
-      />
-      <SmallChart
-        label={'teachers'}
-        data={teachersPerSubject.teachersData}
-        labels={teachersPerSubject.teachersLabels}
-        showTotal={false}
-      />
+
+      <div className={styles.main}>
+        <SmallChart
+          chartTitle="Students by gender"
+          label={'students'}
+          data={[
+            studentGenderCount.male,
+            studentGenderCount.female,
+            studentGenderCount.others,
+          ]}
+          labels={['male', 'female', 'others']}
+          showTotal={true}
+        />
+        <SmallChart
+          chartTitle="Teachers by subject"
+          label={'teachers'}
+          data={teachersPerSubject.teachersData}
+          labels={teachersPerSubject.teachersLabels}
+          showTotal={false}
+        />
+      </div>
     </>
   );
 }
