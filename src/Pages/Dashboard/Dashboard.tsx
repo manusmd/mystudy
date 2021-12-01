@@ -44,6 +44,11 @@ export default function Dashboard(): JSX.Element {
         ]}
         labels={['male', 'female', 'others']}
       />
+      <SmallChart
+        label={'teachers'}
+        data={teachersPerSubject.teachersData}
+        labels={teachersPerSubject.teachersLabels}
+      />
     </>
   );
 }
