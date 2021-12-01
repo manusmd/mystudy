@@ -7,6 +7,7 @@ type smallChartProps = {
   label: 'teachers' | 'students';
   data: number[];
   labels: string[];
+  showTotal: boolean;
 };
 
 export default function SmallChart({
@@ -14,8 +15,10 @@ export default function SmallChart({
   label,
   data,
   labels,
+  showTotal,
 }: smallChartProps) {
   const chartsRef = useRef<HTMLDivElement | null>(null);
+  console.log(showTotal);
 
   useEffect(() => {
     if (!chartsRef.current) {
@@ -50,14 +53,14 @@ export default function SmallChart({
           donut: {
             size: '60%',
             labels: {
-              show: true,
+              show: false,
               value: {
                 offsetY: -10,
                 fontSize: '40%',
               },
               total: {
-                show: true,
-                showAlways: true,
+                show: showTotal,
+                showAlways: showTotal,
                 fontSize: '50%',
                 label: `${label}`,
               },
