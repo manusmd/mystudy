@@ -1,4 +1,4 @@
-export default async function fetchAPI(url) {
+export default async function fetchAPI(url: string) {
   const response = await fetch(url, {
     headers: {
       Authorization: `Bearer ${sessionStorage.getItem('jwt')}`,
