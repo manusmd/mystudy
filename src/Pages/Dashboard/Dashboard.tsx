@@ -43,11 +43,13 @@ export default function Dashboard(): JSX.Element {
           studentGenderCount.others,
         ]}
         labels={['male', 'female', 'others']}
+        showTotal={true}
       />
       <SmallChart
         label={'teachers'}
         data={teachersPerSubject.teachersData}
         labels={teachersPerSubject.teachersLabels}
+        showTotal={false}
       />
     </>
   );
