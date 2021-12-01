@@ -70,7 +70,7 @@ export default function SmallChart({
 
     const chart = new ApexCharts(chartsRef.current, chartProps);
     chart.render();
-  }, []);
+  }, [data]);
 
   return (
     <div className={styles.container}>
