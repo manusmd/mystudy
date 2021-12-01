@@ -15,7 +15,6 @@ type StudentsProps = {
 };
 export default function Dashboard(): JSX.Element {
   const [allStudents, setAllStudents] = useState<StudentsProps[]>([]);
-  const [studentData, setStudentData] = useState<number[] | null>(null);
 
   useEffect(() => {
     const studentsFetch = async () => {
