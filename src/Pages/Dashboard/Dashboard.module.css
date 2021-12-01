@@ -1,3 +1,6 @@
-.title {
-  text-align: center;
+.main {
+  display: grid;
+  margin-top: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
