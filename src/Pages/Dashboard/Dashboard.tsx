@@ -20,18 +20,7 @@ export default function Dashboard(): JSX.Element {
     studentsFetch();
   }, []);
 
-  const studentCount = allStudents.reduce(
-    (prev, cur) => {
-      const obj = { ...prev };
-      obj[cur.gender]++;
-      return obj;
-    },
-    {
-      male: 0,
-      female: 0,
-      others: 0,
-    }
-  );
+  const studentCount = prepareGenderCount(allStudents);
 
   return (
     <>
