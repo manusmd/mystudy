@@ -8,7 +8,6 @@ import {
   prepareTeachersPerSubject,
 } from '../../utils/prepareData';
 import { StudentsType, TeachersType } from '../../utils/types';
-import NavigationBar from '../../Components/NavigationBar/NavigationBar';
 
 export default function Dashboard(): JSX.Element {
   const [allStudents, setAllStudents] = useState<StudentsType[]>([]);
