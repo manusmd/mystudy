@@ -2,6 +2,7 @@ import styles from './Login.module.css';
 import InputElement from '../../Components/InputElement/InputElement';
 import ButtonElement from '../../Components/ButtonElement/ButtonElement';
 import { FormEvent, useState } from 'react';
+import logo from '../../assets/MyStudy.png';
 
 export default function Login() {
   const [mail, setMail] = useState<string | null>('');
@@ -31,7 +32,7 @@ export default function Login() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>MyStudy</h1>
-      <img className={styles.logo} src="src/assets/MyStudy.png" alt="Logo" />
+      <img className={styles.logo} src={logo} alt="Logo" />
       <form onSubmit={handleSubmit} className={styles.loginForm}>
         <InputElement
           onChange={setMail}
