@@ -18,7 +18,6 @@ export default function SmallChart({
   showTotal,
 }: smallChartProps) {
   const chartsRef = useRef<HTMLDivElement | null>(null);
-  console.log(showTotal);
 
   useEffect(() => {
     if (!chartsRef.current) {
