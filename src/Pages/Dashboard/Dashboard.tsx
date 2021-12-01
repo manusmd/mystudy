@@ -30,15 +30,18 @@ export default function Dashboard(): JSX.Element {
     studentsFetch();
     teachersFetch();
   }, []);
-
-  const studentCount = prepareGenderCount(allStudents);
-
+  const studentGenderCount = prepareGenderCount(allStudents);
+  const teachersPerSubject = prepareTeachersPerSubject(allTeachers);
   return (
     <>
       <TitleElement title="Dashboard" />
       <SmallChart
         label={'students'}
-        data={[studentCount.male, studentCount.female, studentCount.others]}
+        data={[
+          studentGenderCount.male,
+          studentGenderCount.female,
+          studentGenderCount.others,
+        ]}
         labels={['male', 'female', 'others']}
       />
     </>
