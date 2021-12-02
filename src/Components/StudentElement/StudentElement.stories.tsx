@@ -6,5 +6,10 @@ export default {
 };
 
 export const Default = () => (
-  <StudentElement studentID={4} surname={'manuel'} lastname={'schmid'} />
+  <StudentElement
+    id={4}
+    surname={'manuel'}
+    lastname={'schmid'}
+    category={'students'}
+  />
 );

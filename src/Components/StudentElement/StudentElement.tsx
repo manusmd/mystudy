@@ -2,20 +2,22 @@ import styles from './StudentElement.module.css';
 import DeleteIcon from './assets/DeleteIcon';
 import { deleteEntry } from '../../utils/fetchAPI';
 
-type StudentElementProps = {
-  studentID: number;
+type entryElementProps = {
+  category: 'students' | 'teachers' | 'groups' | 'subjects';
+  id: number;
   surname: string;
   lastname: string;
 };
 
-export default function StudentElement({
-  studentID,
+export default function entryElement({
+  category,
+  id,
   surname,
   lastname,
-}: StudentElementProps): JSX.Element {
+}: entryElementProps): JSX.Element {
   return (
     <div className={styles.container}>
-      <span>{studentID}</span>
+      <span>{id}</span>
       <span className={styles.gap}>l</span>
       <span>
         {surname} {lastname}
@@ -23,8 +25,10 @@ export default function StudentElement({
       <span className={styles.gap}>l</span>
       <DeleteIcon
         handleOnClick={() => {
-          if (confirm('If you want to delete this student click "ok"!')) {
-            deleteEntry('https://server.manu-web.de/students', studentID);
+          if (
+            confirm(`If you want to delete ${surname} ${lastname} click "ok"!`)
+          ) {
+            deleteEntry(`https://server.manu-web.de/${category}`, id);
           }
         }}
       />
