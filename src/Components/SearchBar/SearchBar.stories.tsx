@@ -5,4 +5,9 @@ export default {
   title: 'Components/SearchBar',
 };
 
-export const Default = () => <SearchBar />;
+export const Default = () => (
+  <SearchBar
+    placeholder={'Search students'}
+    handleChange={(event) => console.log(event.target.value)}
+  />
+);
