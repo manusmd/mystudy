@@ -5,4 +5,6 @@ export default {
   title: 'Components/StudentElement',
 };
 
-export const Default = () => <StudentElement />;
+export const Default = () => (
+  <StudentElement studentID={2} surname={'manuel'} lastname={'schmid'} />
+);
