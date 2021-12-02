@@ -1,4 +1,4 @@
-import StudentElement from './StudentElement';
+import StudentElement from './EntryElement';
 
 export default {
   component: StudentElement,

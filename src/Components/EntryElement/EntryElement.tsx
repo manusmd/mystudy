@@ -1,4 +1,4 @@
-import styles from './StudentElement.module.css';
+import styles from './EntryElement.module.css';
 import DeleteIcon from './assets/DeleteIcon';
 import { deleteEntry } from '../../utils/fetchAPI';
 
