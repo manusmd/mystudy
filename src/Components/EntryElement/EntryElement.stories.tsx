@@ -1,12 +1,12 @@
-import StudentElement from './EntryElement';
+import EntryElement from './EntryElement';
 
 export default {
-  component: StudentElement,
-  title: 'Components/StudentElement',
+  component: EntryElement,
+  title: 'Components/EntryElement',
 };
 
 export const Default = () => (
-  <StudentElement
+  <EntryElement
     id={4}
     surname={'manuel'}
     lastname={'schmid'}
