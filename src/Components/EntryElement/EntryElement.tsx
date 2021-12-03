@@ -2,19 +2,19 @@ import styles from './EntryElement.module.css';
 import DeleteIcon from './assets/DeleteIcon';
 import { deleteEntry } from '../../utils/api';
 
-type entryElementProps = {
+type EntryElementProps = {
   category: 'students' | 'teachers' | 'groups' | 'subjects';
   id: number;
   surname: string;
   lastname: string;
 };
 
-export default function entryElement({
+export default function EntryElement({
   category,
   id,
   surname,
   lastname,
-}: entryElementProps): JSX.Element {
+}: EntryElementProps): JSX.Element {
   return (
     <div className={styles.container}>
       <span>{id}</span>
