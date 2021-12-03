@@ -1,5 +1,5 @@
 export type StudentsType = {
-  id?: number;
+  id: number;
   lastname: string;
   surname: string;
   gender: 'male' | 'female' | 'others';
@@ -10,7 +10,7 @@ export type StudentsType = {
 };
 
 export type TeachersType = {
-  id?: number;
+  id: number;
   lastname: string;
   surname: string;
   address: string;
@@ -20,6 +20,6 @@ export type TeachersType = {
 };
 
 export type SubjectsType = {
-  id?: number;
+  id: number;
   subjectName: string;
 };
