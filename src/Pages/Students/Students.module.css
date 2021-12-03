@@ -1,3 +1,9 @@
-.content {
+.results {
+  display: grid;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.noResult {
   text-align: center;
 }
