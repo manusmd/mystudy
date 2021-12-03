@@ -5,11 +5,14 @@ export default {
   title: 'Components/EntryElement',
 };
 
-export const Default = () => (
+export const TeacherStudent = () => (
   <EntryElement
     id={4}
     surname={'manuel'}
     lastname={'schmid'}
     category={'students'}
   />
+);
+export const GroupSubject = () => (
+  <EntryElement id={4} entryname={'Lions'} category={'students'} />
 );
