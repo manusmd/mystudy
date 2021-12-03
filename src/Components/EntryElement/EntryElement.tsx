@@ -1,6 +1,6 @@
 import styles from './EntryElement.module.css';
 import DeleteIcon from './assets/DeleteIcon';
-import { deleteEntry } from '../../utils/fetchAPI';
+import { deleteEntry } from '../../utils/api';
 
 type entryElementProps = {
   category: 'students' | 'teachers' | 'groups' | 'subjects';
