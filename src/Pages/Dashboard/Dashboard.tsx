@@ -2,7 +2,7 @@ import styles from './Dashboard.module.css';
 import TitleElement from '../../Components/TitleElement/TitleElement';
 import SmallChart from '../../Components/SmallChart/SmallChart';
 import { useEffect, useState } from 'react';
-import fetchAPI from '../../utils/fetchAPI';
+import fetchAPI from '../../utils/api';
 import {
   prepareGenderCount,
   prepareTeachersPerSubject,
