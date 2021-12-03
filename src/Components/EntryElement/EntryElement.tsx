@@ -18,7 +18,7 @@ export default function entryElement({
   return (
     <div className={styles.container}>
       <span>{id}</span>
-      <span className={styles.gap}>l</span>
+      <span className={styles.gap}>|</span>
       <span>
         {surname} {lastname}
       </span>
