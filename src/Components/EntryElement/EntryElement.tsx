@@ -22,7 +22,7 @@ export default function entryElement({
       <span>
         {surname} {lastname}
       </span>
-      <span className={styles.gap}>l</span>
+      <span className={styles.gap}>|</span>
       <DeleteIcon
         handleOnClick={() => {
           if (
