@@ -6,7 +6,7 @@ export type StudentsType = {
   address: string;
   phone: string;
   groups: string[];
-  subjects: string[];
+  subjects: SubjectsType[];
 };
 
 export type TeachersType = {
@@ -22,4 +22,9 @@ export type TeachersType = {
 export type SubjectsType = {
   id: number;
   subjectName: string;
+};
+
+export type GroupsType = {
+  id: number;
+  groupName: string;
 };
