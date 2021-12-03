@@ -1,14 +1,25 @@
-import { StudentsType } from './types';
+import { StudentsType, TeachersType, GroupsType, SubjectsType } from './types';
 import fetchAPI from './api';
 
-export default function setFetch(
-  type: 'students' | 'teachers' | 'subjects' | 'grouups',
-  setAllStudents: (body: StudentsType[]) => void
+export function setStudentTeacherFetch(
+  type: 'students' | 'teachers',
+  setAllEntries: (body: StudentsType[] | TeachersType[]) => void
 ) {
-  const studentsFetch = async () => {
-    const studentsBody = await fetchAPI(`https://server.manu-web.de/${type}`);
+  const entriesFetch = async () => {
+    const entryBody = await fetchAPI(`https://server.manu-web.de/${type}`);
 
-    setAllStudents(studentsBody);
+    setAllEntries(entryBody);
   };
-  studentsFetch();
+  entriesFetch();
+}
+export function setGroupSubjectFetch(
+  type: 'groups' | 'subjects',
+  setAllEntries: (body: GroupsType[] | SubjectsType[]) => void
+) {
+  const entriesFetch = async () => {
+    const entriesBody = await fetchAPI(`https://server.manu-web.de/${type}`);
+
+    setAllEntries(entriesBody);
+  };
+  entriesFetch();
 }
