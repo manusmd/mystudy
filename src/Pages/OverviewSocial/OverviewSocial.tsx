@@ -16,7 +16,6 @@ export default function OverviewSocial({
   const [allEntries, setAllEntries] = useState<StudentsType[] | TeachersType[]>(
     []
   );
-  console.log(allEntries);
   PullToRefresh.init({
     mainElement: 'div',
     onRefresh() {
