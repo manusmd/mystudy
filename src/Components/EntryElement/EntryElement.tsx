@@ -5,8 +5,9 @@ import { deleteEntry } from '../../utils/api';
 type EntryElementProps = {
   category: 'students' | 'teachers' | 'groups' | 'subjects';
   id: number;
-  surname: string;
-  lastname: string;
+  surname?: string;
+  lastname?: string;
+  entryname?: string;
 };
 
 export default function EntryElement({
@@ -14,14 +15,19 @@ export default function EntryElement({
   id,
   surname,
   lastname,
+  entryname,
 }: EntryElementProps): JSX.Element {
   return (
     <div className={styles.container}>
       <span>{id}</span>
       <span className={styles.gap}>|</span>
-      <span>
-        {surname} {lastname}
-      </span>
+      {entryname ? (
+        <span>{entryname}</span>
+      ) : (
+        <span>
+          {surname} {lastname}
+        </span>
+      )}
       <span className={styles.gap}>|</span>
       <DeleteIcon
         handleOnClick={() => {
