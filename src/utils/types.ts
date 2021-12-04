@@ -21,10 +21,10 @@ export type TeachersType = {
 
 export type SubjectsType = {
   id: number;
-  subjectName: string;
+  name: string;
 };
 
 export type GroupsType = {
   id: number;
-  groupName: string;
+  name: string;
 };
