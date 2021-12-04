@@ -19,9 +19,7 @@ export function prepareGenderCount(allStudents: StudentsType[]) {
 export function prepareTeachersPerSubject(allTeachers: TeachersType[]) {
   /*   console.log(allTeachers);
    */ const teachersPrepare = allTeachers
-    .flatMap((teacher) =>
-      teacher.subjects.map((subject) => subject.subjectName)
-    )
+    .flatMap((teacher) => teacher.subjects.map((subject) => subject.name))
     .reduce(
       (prev, cur) => ({ ...prev, [cur]: (prev[cur] || 0) + 1 }),
       {} as Record<string, number>
