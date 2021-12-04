@@ -31,10 +31,18 @@ export default function EntryElement({
       <span className={styles.gap}>|</span>
       <DeleteIcon
         handleOnClick={() => {
-          if (
-            confirm(`If you want to delete ${surname} ${lastname} click "ok"!`)
-          ) {
-            deleteEntry(`https://server.manu-web.de/${category}`, id);
+          if (category === 'students' || category === 'teachers') {
+            if (
+              confirm(
+                `If you want to delete ${surname} ${lastname} click "ok"!`
+              )
+            ) {
+              deleteEntry(`https://server.manu-web.de/${category}`, id);
+            }
+          } else {
+            if (confirm(`If you want to delete ${entryname} click "ok"!`)) {
+              deleteEntry(`https://server.manu-web.de/${category}`, id);
+            }
           }
         }}
       />
