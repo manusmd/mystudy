@@ -3,7 +3,7 @@ import styles from './ButtonElement.module.css';
 
 type ButtonElementProps = {
   text: string;
-  variant: string;
+  variant: 'primary' | 'secondary';
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function ButtonElement({
