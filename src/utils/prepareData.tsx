@@ -1,4 +1,4 @@
-import { StudentsType, SubjectsType } from '../utils/types';
+import { PrepareTeachersType, StudentsType } from '../utils/types';
 
 export function prepareGenderCount(allStudents: StudentsType[]) {
   const genderData = allStudents.reduce(
@@ -15,16 +15,6 @@ export function prepareGenderCount(allStudents: StudentsType[]) {
   );
   return genderData;
 }
-
-type PrepareTeachersType = {
-  id: number;
-  lastname: string;
-  surname: string;
-  address: string;
-  phone: string;
-  groups: string[];
-  subjects: SubjectsType[];
-};
 
 export function prepareTeachersPerSubject(allTeachers: PrepareTeachersType[]) {
   const teachersPrepare = allTeachers
