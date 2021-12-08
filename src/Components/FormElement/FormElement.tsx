@@ -1,19 +1,25 @@
-import styles from './CheckBoxElement.module.css';
-import { StudentsType, TeachersType } from '../../utils/types';
+import styles from './FormElement.module.css';
+import { GroupsType, StudentsType, TeachersType } from '../../utils/types';
 import InputElement from '../InputElement/InputElement';
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import ButtonElement from '../ButtonElement/ButtonElement';
+import fetchAPI from '../../utils/api';
 
 type FormElementProps = {
   person: StudentsType | TeachersType;
+  onSubmitHandler: (event: FormEvent) => void;
 };
 
-export default function FormElement({ person }: FormElementProps): JSX.Element {
+export default function FormElement({
+  person,
+  onSubmitHandler,
+}: FormElementProps): JSX.Element {
   const [surname, setSurname] = useState<string | null>(person.surname);
   const [lastname, setLastname] = useState<string | null>(person.lastname);
   const [address, setAddress] = useState<string | null>(person.address);
   const [groups, setGroups] = useState<string[]>(person.groups);
   const [subjects, setSubjects] = useState<string[]>(person.subjects);
+  const [allGroups, setAllGroups] = useState<GroupsType[]>();
 
   const newPerson = {
     surname: surname,
@@ -22,16 +28,19 @@ export default function FormElement({ person }: FormElementProps): JSX.Element {
     groups: groups,
     subjects: subjects,
   };
-
-  const onSubmitHandler = () => {
-    console.log(newPerson);
-  };
-
   useEffect(() => {
+    const fetchGroups = async () => {
+      const response = await fetchAPI('https://server.manu-web.de/groups');
+      setAllGroups(response);
+    };
+    fetchGroups();
+  }, []);
+
+  /* useEffect(() => {
     console.log(newPerson);
-  }, [surname, lastname, address, groups, subjects]);
+  }, [surname, lastname, address, groups, subjects]); */
   return (
-    <form onSubmit={onSubmitHandler}>
+    <form className={styles.container} onSubmit={onSubmitHandler}>
       <h3>Surname</h3>
       <InputElement
         size={'small'}
@@ -54,27 +63,40 @@ export default function FormElement({ person }: FormElementProps): JSX.Element {
         onChange={setAddress}
       />
       <h3>Groups</h3>
-      {person.groups &&
-        person.groups.map((group) => (
-          <label key={group}>
-            <input
-              type="checkbox"
-              checked={groups.includes(group)}
-              onChange={() => {
-                if (groups.includes(group)) {
-                  const newGroups = groups.filter((entry) => entry !== group);
-                  console.log(newGroups);
-                  setGroups(newGroups);
-                  console.log('delete');
-                } else {
-                  console.log('add');
-                  setGroups([...groups, group]);
-                }
-              }}
-            />
-            {group}
-          </label>
-        ))}
+      <section className={styles.groups}>
+        {person.groups &&
+          allGroups &&
+          allGroups.map((group) => (
+            <label key={group.name}>
+              <input
+                contentEditable={true}
+                type="checkbox"
+                checked={groups.includes(group.name)}
+                onChange={() => {
+                  if (newPerson.groups.includes(group.name)) {
+                    setGroups(groups.filter((entry) => entry !== group.name));
+                  } else {
+                    console.log('soruhrofu');
+                  }
+                  console.log(newPerson.groups);
+                  /* if (person.groups.includes(group.name)) {
+                    const newGroups = groups.filter(
+                      (entry) => entry !== group.name
+                    );
+                    console.log(newGroups);
+                    setGroups(newGroups);
+                    console.log('delete');
+                  } else {
+                    console.log('add');
+                    setGroups([...groups]);
+                  }
+                 */
+                }}
+              />
+              {group.name}
+            </label>
+          ))}
+      </section>
       <h3>Subjects</h3>
       {person.subjects &&
         person.subjects.map((subject) => (
@@ -87,12 +109,13 @@ export default function FormElement({ person }: FormElementProps): JSX.Element {
                   const newSubjects = subjects.filter(
                     (entry) => entry !== subject
                   );
-                  console.log(newSubjects);
-                  setGroups(newSubjects);
-                  console.log('delete');
+                  /*                   console.log(newSubjects);
+                   */ setGroups(newSubjects);
+                  /*                   console.log('delete');
+                   */
                 } else {
-                  console.log('add');
-                  setSubjects([...subjects, subject]);
+                  /*                   console.log('add');
+                   */ setSubjects([...subjects, subject]);
                 }
               }}
             />

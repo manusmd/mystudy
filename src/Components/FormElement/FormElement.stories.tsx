@@ -14,8 +14,12 @@ export const Default = () => (
       gender: 'male',
       address: 'Alemannenstr.1',
       phone: '+49123456789',
-      groups: ['Group 1', 'Group 2'],
+      groups: ['Lions', 'Fishes'],
       subjects: ['German', 'English'],
+    }}
+    onSubmitHandler={(event) => {
+      event.preventDefault();
+      console.log('submit');
     }}
   />
 );
