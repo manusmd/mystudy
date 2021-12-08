@@ -5,8 +5,8 @@ export type StudentsType = {
   gender: 'male' | 'female' | 'others';
   address: string;
   phone: string;
-  groups: GroupsType[];
-  subjects: SubjectsType[];
+  groups: string[] | GroupsType[];
+  subjects: string[] | SubjectsType[];
 };
 
 export type TeachersType = {
@@ -15,7 +15,7 @@ export type TeachersType = {
   surname: string;
   address: string;
   phone: string;
-  groups: GroupsType[];
+  groups: string[] | GroupsType[];
   subjects: SubjectsType[];
 };
 
