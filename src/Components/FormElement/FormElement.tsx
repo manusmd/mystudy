@@ -1,10 +1,5 @@
 import styles from './CheckBoxElement.module.css';
-import {
-  StudentsType,
-  TeachersType,
-  GroupsType,
-  SubjectsType,
-} from '../../utils/types';
+import { StudentsType, TeachersType } from '../../utils/types';
 import InputElement from '../InputElement/InputElement';
 import { useEffect, useState } from 'react';
 import ButtonElement from '../ButtonElement/ButtonElement';
@@ -17,8 +12,8 @@ export default function FormElement({ person }: FormElementProps): JSX.Element {
   const [surname, setSurname] = useState<string | null>(person.surname);
   const [lastname, setLastname] = useState<string | null>(person.lastname);
   const [address, setAddress] = useState<string | null>(person.address);
-  const [groups, setGroups] = useState<GroupsType[]>(person.groups);
-  const [subjects, setSubjects] = useState<SubjectsType[]>(person.subjects);
+  const [groups, setGroups] = useState<string[]>(person.groups);
+  const [subjects, setSubjects] = useState<string[]>(person.subjects);
 
   const newPerson = {
     surname: surname,
@@ -61,7 +56,7 @@ export default function FormElement({ person }: FormElementProps): JSX.Element {
       <h3>Groups</h3>
       {person.groups &&
         person.groups.map((group) => (
-          <label key={group.id}>
+          <label key={group}>
             <input
               type="checkbox"
               checked={groups.includes(group)}
@@ -83,7 +78,7 @@ export default function FormElement({ person }: FormElementProps): JSX.Element {
       <h3>Subjects</h3>
       {person.subjects &&
         person.subjects.map((subject) => (
-          <label key={subject.id}>
+          <label key={subject}>
             <input
               type="checkbox"
               checked={subjects.includes(subject)}
