@@ -1,5 +1,10 @@
 import styles from './FormElement.module.css';
-import { GroupsType, StudentsType, TeachersType } from '../../utils/types';
+import {
+  GroupsType,
+  StudentsType,
+  SubjectsType,
+  TeachersType,
+} from '../../utils/types';
 import InputElement from '../InputElement/InputElement';
 import { FormEvent, useEffect, useState } from 'react';
 import ButtonElement from '../ButtonElement/ButtonElement';
@@ -20,6 +25,7 @@ export default function FormElement({
   const [groups, setGroups] = useState<string[]>(person.groups);
   const [subjects, setSubjects] = useState<string[]>(person.subjects);
   const [allGroups, setAllGroups] = useState<GroupsType[]>();
+  const [allSubjects, setAllSubjects] = useState<SubjectsType[]>();
 
   const newPerson = {
     surname: surname,
@@ -33,12 +39,14 @@ export default function FormElement({
       const response = await fetchAPI('https://server.manu-web.de/groups');
       setAllGroups(response);
     };
+    const fetchSubjects = async () => {
+      const response = await fetchAPI('https://server.manu-web.de/subjects');
+      setAllSubjects(response);
+    };
     fetchGroups();
+    fetchSubjects();
   }, []);
 
-  /* useEffect(() => {
-    console.log(newPerson);
-  }, [surname, lastname, address, groups, subjects]); */
   return (
     <form className={styles.container} onSubmit={onSubmitHandler}>
       <h3>Surname</h3>
@@ -76,21 +84,8 @@ export default function FormElement({
                   if (newPerson.groups.includes(group.name)) {
                     setGroups(groups.filter((entry) => entry !== group.name));
                   } else {
-                    console.log('soruhrofu');
+                    setGroups([...groups, group.name]);
                   }
-                  console.log(newPerson.groups);
-                  /* if (person.groups.includes(group.name)) {
-                    const newGroups = groups.filter(
-                      (entry) => entry !== group.name
-                    );
-                    console.log(newGroups);
-                    setGroups(newGroups);
-                    console.log('delete');
-                  } else {
-                    console.log('add');
-                    setGroups([...groups]);
-                  }
-                 */
                 }}
               />
               {group.name}
@@ -98,30 +93,28 @@ export default function FormElement({
           ))}
       </section>
       <h3>Subjects</h3>
-      {person.subjects &&
-        person.subjects.map((subject) => (
-          <label key={subject}>
-            <input
-              type="checkbox"
-              checked={subjects.includes(subject)}
-              onChange={() => {
-                if (groups.includes(subject)) {
-                  const newSubjects = subjects.filter(
-                    (entry) => entry !== subject
-                  );
-                  /*                   console.log(newSubjects);
-                   */ setGroups(newSubjects);
-                  /*                   console.log('delete');
-                   */
-                } else {
-                  /*                   console.log('add');
-                   */ setSubjects([...subjects, subject]);
-                }
-              }}
-            />
-            {subject}
-          </label>
-        ))}
+      <section className={styles.subjects}>
+        {person.subjects &&
+          allSubjects &&
+          allSubjects.map((subject) => (
+            <label key={subject.name}>
+              <input
+                type="checkbox"
+                checked={subjects.includes(subject.name)}
+                onChange={() => {
+                  if (newPerson.subjects.includes(subject.name)) {
+                    setSubjects(
+                      subjects.filter((entry) => entry !== subject.name)
+                    );
+                  } else {
+                    setSubjects([...subjects, subject.name]);
+                  }
+                }}
+              />
+              {subject.name}
+            </label>
+          ))}
+      </section>
       <ButtonElement text={'Cancel'} variant={'secondary'} />
       <ButtonElement type="submit" text={'Save'} variant={'primary'} />
     </form>
