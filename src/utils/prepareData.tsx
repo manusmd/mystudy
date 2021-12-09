@@ -1,4 +1,4 @@
-import { StudentsType, TeachersType } from '../utils/types';
+import { PrepareTeachersType, StudentsType } from '../utils/types';
 
 export function prepareGenderCount(allStudents: StudentsType[]) {
   const genderData = allStudents.reduce(
@@ -16,9 +16,8 @@ export function prepareGenderCount(allStudents: StudentsType[]) {
   return genderData;
 }
 
-export function prepareTeachersPerSubject(allTeachers: TeachersType[]) {
-  /*   console.log(allTeachers);
-   */ const teachersPrepare = allTeachers
+export function prepareTeachersPerSubject(allTeachers: PrepareTeachersType[]) {
+  const teachersPrepare = allTeachers
     .flatMap((teacher) => teacher.subjects.map((subject) => subject.name))
     .reduce(
       (prev, cur) => ({ ...prev, [cur]: (prev[cur] || 0) + 1 }),
