@@ -7,6 +7,7 @@ import {
   prepareGenderCount,
   prepareTeachersPerSubject,
 } from '../../utils/prepareData';
+
 import { PrepareTeachersType, StudentsType } from '../../utils/types';
 
 export default function Dashboard(): JSX.Element {
