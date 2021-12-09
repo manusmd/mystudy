@@ -39,17 +39,18 @@ export default function SmallChart({
         },
       },
       chart: {
+        redrawOnParentResize: true,
         redrawOnWindowResize: true,
-        type: 'donut',
-        width: '100%',
-        height: '100%',
+        type: 'pie',
+        width: '90%',
+        height: '90%',
       },
       plotOptions: {
         pie: {
           customScale: 1.2,
           expandOnClick: false,
           offsetY: 30,
-          donut: {
+          /* donut: {
             size: '60%',
             labels: {
               show: false,
@@ -64,7 +65,7 @@ export default function SmallChart({
                 label: `${label}`,
               },
             },
-          },
+          }, */
         },
       },
       series: [...data],
@@ -72,11 +73,11 @@ export default function SmallChart({
 
     const chart = new ApexCharts(chartsRef.current, chartProps);
     chart.render();
-  }, [data]);
+  }, []);
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.chartTitle}>{chartTitle}</h3>
+      <span className={styles.chartTitle}>{chartTitle}</span>
       <div className={styles.chart} ref={chartsRef}></div>
     </div>
   );

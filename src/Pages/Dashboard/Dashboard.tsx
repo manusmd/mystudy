@@ -7,11 +7,11 @@ import {
   prepareGenderCount,
   prepareTeachersPerSubject,
 } from '../../utils/prepareData';
-import { StudentsType, TeachersType } from '../../utils/types';
+import { PrepareTeachersType, StudentsType } from '../../utils/types';
 
 export default function Dashboard(): JSX.Element {
   const [allStudents, setAllStudents] = useState<StudentsType[]>([]);
-  const [allTeachers, setAllTeachers] = useState<TeachersType[]>([]);
+  const [allTeachers, setAllTeachers] = useState<PrepareTeachersType[]>([]);
 
   useEffect(() => {
     const studentsFetch = async () => {
