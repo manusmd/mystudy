@@ -59,7 +59,7 @@ export default function SmallChart({
   return (
     <div className={styles.container}>
       <span className={styles.chartTitle}>{chartTitle}</span>
-      <div className={styles.chart} ref={chartsRef}></div>
+      {chartsRef && <div className={styles.chart} ref={chartsRef}></div>}
     </div>
   );
 }
