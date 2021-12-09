@@ -7,11 +7,11 @@ import {
   prepareGenderCount,
   prepareTeachersPerSubject,
 } from '../../utils/prepareData';
-import { StudentsType, TeachersType } from '../../utils/types';
+import { PrepareTeachersType, StudentsType } from '../../utils/types';
 
 export default function Dashboard(): JSX.Element {
   const [allStudents, setAllStudents] = useState<StudentsType[]>([]);
-  const [allTeachers, setAllTeachers] = useState<TeachersType[]>([]);
+  const [allTeachers, setAllTeachers] = useState<PrepareTeachersType[]>([]);
 
   useEffect(() => {
     const studentsFetch = async () => {
@@ -39,21 +39,17 @@ export default function Dashboard(): JSX.Element {
       <div className={styles.main}>
         <SmallChart
           chartTitle="Students by gender"
-          label={'students'}
           data={[
             studentGenderCount.male,
             studentGenderCount.female,
             studentGenderCount.others,
           ]}
           labels={['male', 'female', 'others']}
-          showTotal={true}
         />
         <SmallChart
           chartTitle="Teachers by subject"
-          label={'teachers'}
           data={teachersPerSubject.teachersData}
           labels={teachersPerSubject.teachersLabels}
-          showTotal={false}
         />
       </div>
     </>

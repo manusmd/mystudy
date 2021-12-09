@@ -3,14 +3,15 @@ import InputElement from '../../Components/InputElement/InputElement';
 import ButtonElement from '../../Components/ButtonElement/ButtonElement';
 import { FormEvent, useState } from 'react';
 import logo from '../../assets/MyStudy.png';
+import { useNavigate } from 'react-router';
 
 export default function Login() {
   const [mail, setMail] = useState<string | null>('');
   const [password, setPassword] = useState<string>('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     const formdata = new FormData();
     formdata.append('identifier', `${mail}`);
     formdata.append('password', `${password}`);
@@ -26,6 +27,11 @@ export default function Login() {
       }
     } catch (error) {
       console.log('An error occurred', error);
+    }
+    if (sessionStorage.getItem('jwt')) {
+      navigate('/home', { replace: true });
+    } else {
+      alert('Check username and password');
     }
   };
 
