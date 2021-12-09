@@ -25,7 +25,7 @@ export default function OverviewSocial({
 
   useEffect(() => {
     setStudentTeacherFetch(category, setAllEntries);
-  }, []);
+  }, [category]);
   return (
     <>
       <TitleElement title={category} />

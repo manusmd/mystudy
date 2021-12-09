@@ -1,14 +1,45 @@
-import { Routes, Route } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router';
+import Dashboard from './Pages/Dashboard/Dashboard';
 import Login from './Pages/Login/Login';
+import OverviewGroupSubject from './Pages/OverviewGroupSubject/OverviewGroupSubject';
+import OverviewSocial from './Pages/OverviewSocial/OverviewSocial';
+import NavigationBar from './Components/NavigationBar/NavigationBar';
+import { useEffect, useState } from 'react';
+import styles from './App.module.css';
 
 function App() {
+  const [activeLink, setActiveLink] = useState<string>();
+  const current = useLocation();
+  useEffect(() => {
+    return setActiveLink(current.pathname);
+  }, [current]);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <div className={styles.container}>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route
+            path="/students"
+            element={<OverviewSocial category={'students'} />}
+          />
+          <Route
+            path="/teachers"
+            element={<OverviewSocial category={'teachers'} />}
+          />
+          <Route path="/home" element={<Dashboard />} />
+          <Route
+            path="/groups"
+            element={<OverviewGroupSubject category={'groups'} />}
+          />
+          <Route
+            path="/subjects"
+            element={<OverviewGroupSubject category={'subjects'} />}
+          />
+        </Routes>
+      </div>
+      {activeLink !== '/' && <NavigationBar activeLink={activeLink} />}
+    </>
   );
 }
 

@@ -13,3 +13,7 @@
 .logo {
   width: 5rem;
 }
+
+.title::first-letter {
+  text-transform: uppercase;
+}
