@@ -28,3 +28,13 @@ export type GroupsType = {
   id: number;
   name: string;
 };
+
+export type PrepareTeachersType = {
+  id: number;
+  lastname: string;
+  surname: string;
+  address: string;
+  phone: string;
+  groups: string[];
+  subjects: SubjectsType[];
+};
