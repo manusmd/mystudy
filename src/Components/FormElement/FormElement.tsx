@@ -12,7 +12,7 @@ import fetchAPI from '../../utils/api';
 
 type FormElementProps = {
   person: StudentsType | TeachersType;
-  onSubmitHandler: (event: FormEvent) => void;
+  onSubmitHandler?: (event: FormEvent) => void;
 };
 
 export default function FormElement({
@@ -46,7 +46,6 @@ export default function FormElement({
     fetchGroups();
     fetchSubjects();
   }, []);
-
   return (
     <form className={styles.container} onSubmit={onSubmitHandler}>
       <h3>Surname</h3>
@@ -115,8 +114,13 @@ export default function FormElement({
             </label>
           ))}
       </section>
-      <ButtonElement text={'Cancel'} variant={'secondary'} />
-      <ButtonElement type="submit" text={'Save'} variant={'primary'} />
+
+      {onSubmitHandler && (
+        <>
+          <ButtonElement text={'Cancel'} variant={'secondary'} />
+          <ButtonElement type="submit" text={'Save'} variant={'primary'} />
+        </>
+      )}
     </form>
   );
 }
