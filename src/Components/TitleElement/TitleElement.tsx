@@ -10,7 +10,7 @@ export default function TitleElement({ title }: TitleElementProps) {
   return (
     <div className={styles.container}>
       <img className={styles.logo} src={logo} alt="" />
-      <h2>{title}</h2>
+      <h2 className={styles.title}>{title}</h2>
       <AccountLogo />
     </div>
   );

@@ -6,10 +6,5 @@ export default {
 };
 
 export const Default = () => (
-  <SmallChart
-    label="students"
-    data={[10, 14, 5]}
-    labels={['male', 'female', 'others']}
-    showTotal={false}
-  />
+  <SmallChart data={[10, 14, 5]} labels={['male', 'female', 'others']} />
 );
