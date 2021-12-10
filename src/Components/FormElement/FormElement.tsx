@@ -9,6 +9,7 @@ import InputElement from '../InputElement/InputElement';
 import { FormEvent, useEffect, useState } from 'react';
 import ButtonElement from '../ButtonElement/ButtonElement';
 import fetchAPI from '../../utils/api';
+import { useLocation } from 'react-router';
 
 type FormElementProps = {
   person: StudentsType | TeachersType;
@@ -26,6 +27,7 @@ export default function FormElement({
   const [subjects, setSubjects] = useState<string[]>(person.subjects);
   const [allGroups, setAllGroups] = useState<GroupsType[]>();
   const [allSubjects, setAllSubjects] = useState<SubjectsType[]>();
+  const current = useLocation();
 
   const newPerson = {
     surname: surname,
@@ -51,21 +53,24 @@ export default function FormElement({
       <h3>Surname</h3>
       <InputElement
         size={'small'}
-        placeholder={person.surname}
+        value={person.surname}
+        placeholder={'surname'}
         type={'text'}
         onChange={setSurname}
       />
       <h3>Last name</h3>
       <InputElement
         size={'small'}
-        placeholder={person.lastname}
+        value={person.lastname}
+        placeholder={'lastname'}
         type={'text'}
         onChange={setLastname}
       />
       <h3>Address</h3>
       <InputElement
         size={'small'}
-        placeholder={person.address}
+        value={person.address}
+        placeholder={'address'}
         type={'text'}
         onChange={setAddress}
       />
@@ -78,7 +83,11 @@ export default function FormElement({
               <input
                 contentEditable={true}
                 type="checkbox"
-                checked={groups.includes(group.name)}
+                checked={
+                  current.pathname === '/details'
+                    ? person.groups.includes(group.name)
+                    : groups.includes(group.name)
+                }
                 onChange={() => {
                   if (newPerson.groups.includes(group.name)) {
                     setGroups(groups.filter((entry) => entry !== group.name));
@@ -99,7 +108,11 @@ export default function FormElement({
             <label key={subject.name}>
               <input
                 type="checkbox"
-                checked={subjects.includes(subject.name)}
+                checked={
+                  current.pathname === '/details'
+                    ? person.subjects.includes(subject.name)
+                    : subjects.includes(subject.name)
+                }
                 onChange={() => {
                   if (newPerson.subjects.includes(subject.name)) {
                     setSubjects(
