@@ -24,7 +24,13 @@ export default function OverviewSocial({
   });
 
   useEffect(() => {
+    let cancel = false;
+    if (cancel) return;
     setStudentTeacherFetch(category, setAllEntries);
+
+    return () => {
+      cancel = false;
+    };
   }, [category]);
   return (
     <>
