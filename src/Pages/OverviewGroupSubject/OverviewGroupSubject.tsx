@@ -10,7 +10,7 @@ type OverviewSocialProps = {
   category: 'groups' | 'subjects';
 };
 
-export default function OverviewSocial({
+export default function OverviewGroupSubject({
   category,
 }: OverviewSocialProps): JSX.Element {
   const [allEntries, setAllEntries] = useState<GroupsType[] | SubjectsType[]>(
@@ -24,7 +24,13 @@ export default function OverviewSocial({
   });
 
   useEffect(() => {
+    let cancel = false;
+    if (cancel) return;
     setGroupSubjectFetch(category, setAllEntries);
+
+    return () => {
+      cancel = false;
+    };
   }, [category]);
   return (
     <>
