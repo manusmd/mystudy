@@ -1,6 +1,7 @@
 import styles from './EntryElement.module.css';
 import DeleteIcon from './assets/DeleteIcon';
 import { deleteEntry } from '../../utils/api';
+import { useNavigate } from 'react-router';
 
 type EntryElementProps = {
   category: 'students' | 'teachers' | 'groups' | 'subjects';
@@ -17,17 +18,26 @@ export default function EntryElement({
   lastname,
   entryname,
 }: EntryElementProps): JSX.Element {
+  const navigate = useNavigate();
   return (
     <div className={styles.container}>
       <span>{id}</span>
       <span className={styles.gap}>|</span>
-      {entryname ? (
-        <span>{entryname}</span>
-      ) : (
-        <span>
-          {surname} {lastname}
-        </span>
-      )}
+      <div
+        onClick={() => {
+          sessionStorage.setItem('activeEntry', id.toString());
+          sessionStorage.setItem('activeCategory', category);
+          navigate('/details');
+        }}
+      >
+        {entryname ? (
+          <span>{entryname}</span>
+        ) : (
+          <span>
+            {surname} {lastname}
+          </span>
+        )}
+      </div>
       <span className={styles.gap}>|</span>
       <DeleteIcon
         handleOnClick={() => {
