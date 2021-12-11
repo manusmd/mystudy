@@ -13,6 +13,7 @@ export type TeachersType = {
   id: number;
   lastname: string;
   surname: string;
+  gender?: 'male' | 'female' | 'others';
   address: string;
   phone: string;
   groups: string[];
@@ -33,8 +34,19 @@ export type PrepareTeachersType = {
   id: number;
   lastname: string;
   surname: string;
+  gender?: 'male' | 'female' | 'others';
   address: string;
   phone: string;
-  groups: string[];
+  groups: GroupsType[];
+  subjects: SubjectsType[];
+};
+export type PrepareStudentsType = {
+  id: number;
+  lastname: string;
+  surname: string;
+  gender?: 'male' | 'female' | 'others';
+  address: string;
+  phone: string;
+  groups: GroupsType[];
   subjects: SubjectsType[];
 };

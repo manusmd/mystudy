@@ -6,6 +6,7 @@ import OverviewSocial from './Pages/OverviewSocial/OverviewSocial';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
 import { useEffect, useState } from 'react';
 import styles from './App.module.css';
+import Details from './Pages/Details/Details';
 
 function App() {
   const [activeLink, setActiveLink] = useState<string>();
@@ -36,6 +37,7 @@ function App() {
             path="/subjects"
             element={<OverviewGroupSubject category={'subjects'} />}
           />
+          <Route path="/details" element={<Details />} />
         </Routes>
       </div>
       {activeLink !== '/' && <NavigationBar activeLink={activeLink} />}
