@@ -15,4 +15,5 @@
   background-color: var(--primary-bg-color);
   color: var(--secondary-text-color);
   font-weight: bold;
+  border: 1px solid black;
 }

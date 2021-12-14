@@ -17,9 +17,6 @@ export const Default = () => (
       groups: ['Lions', 'Fishes'],
       subjects: ['German', 'English'],
     }}
-    onSubmitHandler={(event) => {
-      event.preventDefault();
-      console.log('submit');
-    }}
+    submit={false}
   />
 );
