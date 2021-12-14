@@ -8,6 +8,7 @@ export default function Details() {
   const [entry, setEntry] = useState<
     PrepareStudentsType | PrepareTeachersType
   >();
+
   useEffect(() => {
     const detailFetch = async () => {
       const response = await fetchAPI(
@@ -19,10 +20,9 @@ export default function Details() {
     };
     detailFetch();
   }, []);
-  console.log(entry);
   return (
     <>
-      <TitleElement title={'Details'} />
+      <TitleElement title={`${sessionStorage.getItem('activeCategory')}`} />
       {entry && (
         <FormElement
           person={{
@@ -35,6 +35,7 @@ export default function Details() {
             groups: entry.groups.map((group) => group.name),
             subjects: entry.subjects.map((subject) => subject.name),
           }}
+          submit={false}
         />
       )}
     </>
