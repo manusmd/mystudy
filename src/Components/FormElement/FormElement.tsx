@@ -6,20 +6,16 @@ import {
   TeachersType,
 } from '../../utils/types';
 import InputElement from '../InputElement/InputElement';
-import { FormEvent, useEffect, useState } from 'react';
-import ButtonElement from '../ButtonElement/ButtonElement';
+import { useEffect, useState } from 'react';
 import fetchAPI from '../../utils/api';
 import { useLocation } from 'react-router';
 
 type FormElementProps = {
   person: StudentsType | TeachersType;
-  onSubmitHandler?: (event: FormEvent) => void;
+  submit: boolean;
 };
 
-export default function FormElement({
-  person,
-  onSubmitHandler,
-}: FormElementProps): JSX.Element {
+export default function FormElement({ person }: FormElementProps): JSX.Element {
   const [surname, setSurname] = useState<string | null>(person.surname);
   const [lastname, setLastname] = useState<string | null>(person.lastname);
   const [address, setAddress] = useState<string | null>(person.address);
@@ -48,8 +44,9 @@ export default function FormElement({
     fetchGroups();
     fetchSubjects();
   }, []);
+
   return (
-    <form className={styles.container} onSubmit={onSubmitHandler}>
+    <form className={styles.container}>
       <h3>Surname</h3>
       <InputElement
         size={'small'}
@@ -127,13 +124,6 @@ export default function FormElement({
             </label>
           ))}
       </section>
-
-      {onSubmitHandler && (
-        <>
-          <ButtonElement text={'Cancel'} variant={'secondary'} />
-          <ButtonElement type="submit" text={'Save'} variant={'primary'} />
-        </>
-      )}
     </form>
   );
 }

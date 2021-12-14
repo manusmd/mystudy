@@ -5,6 +5,7 @@ import TitleElement from '../../Components/TitleElement/TitleElement';
 import EntryElement from '../../Components/EntryElement/EntryElement';
 import PullToRefresh from 'pulltorefreshjs';
 import { setStudentTeacherFetch } from '../../utils/helper';
+import { Link } from 'react-router-dom';
 
 type OverviewSocialProps = {
   category: 'students' | 'teachers';
@@ -16,22 +17,21 @@ export default function OverviewSocial({
   const [allEntries, setAllEntries] = useState<StudentsType[] | TeachersType[]>(
     []
   );
-  PullToRefresh.init({
-    mainElement: 'div',
-    onRefresh() {
-      setStudentTeacherFetch(category, setAllEntries);
-    },
-  });
+  PullToRefresh.init();
 
   useEffect(() => {
-    let cancel = false;
-    if (cancel) return;
-    setStudentTeacherFetch(category, setAllEntries);
+    sessionStorage.setItem('addPost', category);
+    let mounted = true;
+    if (mounted) {
+      setStudentTeacherFetch(category, setAllEntries);
+    }
 
     return () => {
-      cancel = false;
+      PullToRefresh.destroyAll();
+      mounted = false;
     };
   }, [category]);
+
   return (
     <>
       <TitleElement title={category} />
@@ -49,6 +49,11 @@ export default function OverviewSocial({
         ) : (
           <span className={styles.noResult}>No student found</span>
         )}
+      </div>
+      <div className={styles.addWrap}>
+        <Link className={styles.add} to={'/add'}>
+          +
+        </Link>
       </div>
     </>
   );
