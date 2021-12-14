@@ -1,0 +1,32 @@
+.container {
+  display: grid;
+}
+
+.groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+
+.subjects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+
+.buttons {
+  display: grid;
+  margin-top: 1rem;
+  place-items: center;
+  gap: 1rem;
+}
+
+.gender {
+  width: 80%;
+  border: none;
+  background-color: var(--input-bg-color);
+  border-radius: var(--default-border-radius);
+  text-align: center;
+  justify-self: center;
+  height: 1.5rem;
+}
