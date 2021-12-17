@@ -27,10 +27,9 @@ export default function EntryElement({
         onClick={() => {
           sessionStorage.setItem('activeEntry', id.toString());
           sessionStorage.setItem('activeCategory', category);
-          {
-            category === 'students' ||
-              (category === 'teachers' && navigate('/details'));
-          }
+
+          if (category === 'students' || category === 'teachers')
+            navigate('/details');
         }}
       >
         {entryname ? (
