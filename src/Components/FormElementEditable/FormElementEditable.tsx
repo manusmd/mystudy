@@ -4,6 +4,7 @@ import InputElement from '../InputElement/InputElement';
 import { FormEvent, useEffect, useState } from 'react';
 import ButtonElement from '../ButtonElement/ButtonElement';
 import fetchAPI from '../../utils/api';
+import { useNavigate } from 'react-router-dom';
 
 export default function FormElementEditable(): JSX.Element {
   const [surname, setSurname] = useState<string | null>();
@@ -15,8 +16,12 @@ export default function FormElementEditable(): JSX.Element {
   const [subjects, setSubjects] = useState<SubjectsType[]>([]);
   const [allGroups, setAllGroups] = useState<GroupsType[]>();
   const [allSubjects, setAllSubjects] = useState<SubjectsType[]>();
+  const [active, setActive] = useState<string | null>(null);
 
+  const navigate = useNavigate();
   useEffect(() => {
+    setActive(sessionStorage.getItem('addPost'));
+
     const fetchGroups = async () => {
       const response = await fetchAPI('https://server.manu-web.de/groups');
       setAllGroups(response);
@@ -48,6 +53,7 @@ export default function FormElementEditable(): JSX.Element {
       },
       body: JSON.stringify(newPerson),
     });
+    if (active) navigate(`/${active}`);
   };
 
   return (
