@@ -1,0 +1,9 @@
+.container {
+  display: grid;
+}
+
+.buttons {
+  display: grid;
+  margin-top: 1rem;
+  place-items: center;
+}
