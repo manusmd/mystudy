@@ -17,20 +17,23 @@ export default function OverviewSocial({
   const [allEntries, setAllEntries] = useState<StudentsType[] | TeachersType[]>(
     []
   );
-  PullToRefresh.init();
+  PullToRefresh.init({
+    mainElement: 'div',
+    onRefresh() {
+      setStudentTeacherFetch(category, setAllEntries);
+    },
+  });
 
   useEffect(() => {
+    let cancel = false;
+    if (cancel) return;
     sessionStorage.setItem('addPost', category);
-    let mounted = true;
-    if (mounted) {
-      setStudentTeacherFetch(category, setAllEntries);
-    }
+    setStudentTeacherFetch(category, setAllEntries);
 
     return () => {
-      PullToRefresh.destroyAll();
-      mounted = false;
+      cancel = false;
     };
-  }, [category]);
+  });
 
   return (
     <>
@@ -51,7 +54,7 @@ export default function OverviewSocial({
         )}
       </div>
       <div className={styles.addWrap}>
-        <Link className={styles.add} to={'/add'}>
+        <Link className={styles.add} to={'/addsocial'}>
           +
         </Link>
       </div>
