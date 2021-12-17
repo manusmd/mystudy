@@ -5,6 +5,7 @@ import TitleElement from '../../Components/TitleElement/TitleElement';
 import EntryElement from '../../Components/EntryElement/EntryElement';
 import PullToRefresh from 'pulltorefreshjs';
 import { setGroupSubjectFetch } from '../../utils/helper';
+import { Link } from 'react-router-dom';
 
 type OverviewSocialProps = {
   category: 'groups' | 'subjects';
@@ -24,6 +25,8 @@ export default function OverviewGroupSubject({
   });
 
   useEffect(() => {
+    sessionStorage.setItem('addPost', category);
+
     let cancel = false;
     if (cancel) return;
     setGroupSubjectFetch(category, setAllEntries);
@@ -31,7 +34,7 @@ export default function OverviewGroupSubject({
     return () => {
       cancel = false;
     };
-  }, [category]);
+  });
   return (
     <>
       <TitleElement title={category} />
@@ -48,6 +51,11 @@ export default function OverviewGroupSubject({
         ) : (
           <span className={styles.noResult}>No entry found</span>
         )}
+      </div>
+      <div className={styles.addWrap}>
+        <Link className={styles.add} to={'/addorga'}>
+          +
+        </Link>
       </div>
     </>
   );
