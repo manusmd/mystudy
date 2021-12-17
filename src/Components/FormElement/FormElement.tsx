@@ -19,6 +19,7 @@ export default function FormElement({ person }: FormElementProps): JSX.Element {
   const [surname, setSurname] = useState<string | null>(person.surname);
   const [lastname, setLastname] = useState<string | null>(person.lastname);
   const [address, setAddress] = useState<string | null>(person.address);
+  const [gender, setGender] = useState<string | undefined>(person.gender);
   const [groups, setGroups] = useState<string[]>(person.groups);
   const [subjects, setSubjects] = useState<string[]>(person.subjects);
   const [allGroups, setAllGroups] = useState<GroupsType[]>();
@@ -26,11 +27,12 @@ export default function FormElement({ person }: FormElementProps): JSX.Element {
   const current = useLocation();
 
   const newPerson = {
-    surname: surname,
-    lastname: lastname,
-    address: address,
-    groups: groups,
-    subjects: subjects,
+    surname,
+    lastname,
+    gender,
+    address,
+    groups,
+    subjects,
   };
   useEffect(() => {
     const fetchGroups = async () => {
@@ -62,6 +64,14 @@ export default function FormElement({ person }: FormElementProps): JSX.Element {
         placeholder={'lastname'}
         type={'text'}
         onChange={setLastname}
+      />
+      <h3>Gender</h3>
+      <InputElement
+        size={'small'}
+        value={person.gender}
+        placeholder={'gender'}
+        type={'text'}
+        onChange={setGender}
       />
       <h3>Address</h3>
       <InputElement

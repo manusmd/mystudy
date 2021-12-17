@@ -2,7 +2,7 @@ export type StudentsType = {
   id: number;
   lastname: string;
   surname: string;
-  gender: 'male' | 'female' | 'others';
+  gender: 'male' | 'female' | 'others' | undefined;
   address: string;
   phone: string;
   groups: string[];
@@ -13,7 +13,7 @@ export type TeachersType = {
   id: number;
   lastname: string;
   surname: string;
-  gender?: 'male' | 'female' | 'others';
+  gender: 'male' | 'female' | 'others' | undefined;
   address: string;
   phone: string;
   groups: string[];
