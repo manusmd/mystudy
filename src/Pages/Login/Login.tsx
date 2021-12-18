@@ -6,7 +6,7 @@ import logo from '../../assets/MyStudy.png';
 import { useNavigate } from 'react-router';
 
 export default function Login() {
-  const [mail, setMail] = useState<string | null>('');
+  const [mail, setMail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const navigate = useNavigate();
 
