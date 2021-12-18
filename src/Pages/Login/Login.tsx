@@ -13,8 +13,8 @@ export default function Login() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formdata = new FormData();
-    formdata.append('identifier', `${mail}`);
-    formdata.append('password', `${password}`);
+    formdata.append('identifier', mail);
+    formdata.append('password', password);
 
     try {
       const response = await fetch('https://server.manu-web.de/auth/local', {
