@@ -4,17 +4,12 @@ import Login from './Pages/Login/Login';
 import OverviewGroupSubject from './Pages/OverviewGroupSubject/OverviewGroupSubject';
 import OverviewSocial from './Pages/OverviewSocial/OverviewSocial';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
-import { useEffect, useState } from 'react';
 import styles from './App.module.css';
 import Details from './Pages/Details/Details';
 import AddSocial from './Pages/AddEntry/AddEntry';
 
 function App() {
-  const [activeLink, setActiveLink] = useState<string>();
   const current = useLocation();
-  useEffect(() => {
-    return setActiveLink(current.pathname);
-  }, [current]);
 
   return (
     <>
@@ -46,7 +41,9 @@ function App() {
           <Route path="/addorga" element={<AddSocial category={'orga'} />} />
         </Routes>
       </div>
-      {activeLink !== '/' && <NavigationBar activeLink={activeLink} />}
+      {current.pathname !== '/' && (
+        <NavigationBar activeLink={current.pathname} />
+      )}
     </>
   );
 }
