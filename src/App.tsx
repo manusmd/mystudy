@@ -7,7 +7,7 @@ import NavigationBar from './Components/NavigationBar/NavigationBar';
 import { useEffect, useState } from 'react';
 import styles from './App.module.css';
 import Details from './Pages/Details/Details';
-import AddSocial from './Pages/AddSocial/AddSocial';
+import AddSocial from './Pages/AddEntry/AddEntry';
 
 function App() {
   const [activeLink, setActiveLink] = useState<string>();
@@ -39,7 +39,11 @@ function App() {
             element={<OverviewGroupSubject category={'subjects'} />}
           />
           <Route path="/details" element={<Details />} />
-          <Route path="/add" element={<AddSocial />} />
+          <Route
+            path="/addsocial"
+            element={<AddSocial category={'social'} />}
+          />
+          <Route path="/addorga" element={<AddSocial category={'orga'} />} />
         </Routes>
       </div>
       {activeLink !== '/' && <NavigationBar activeLink={activeLink} />}

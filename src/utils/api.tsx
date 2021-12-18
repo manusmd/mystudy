@@ -16,3 +16,17 @@ export function deleteEntry(url: string, id: number) {
     },
   });
 }
+
+export async function addGroupSubject(url: string, name: string) {
+  const postObj = {
+    name,
+  };
+  await fetch(`${url}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${sessionStorage.getItem('jwt')}`,
+    },
+    body: JSON.stringify(postObj),
+  });
+}
