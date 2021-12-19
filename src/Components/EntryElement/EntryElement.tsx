@@ -19,19 +19,18 @@ export default function EntryElement({
   entryname,
 }: EntryElementProps): JSX.Element {
   const navigate = useNavigate();
+  const clickHandler = () => {
+    sessionStorage.setItem('activeEntry', id.toString());
+    sessionStorage.setItem('activeCategory', category);
+
+    if (category === 'students' || category === 'teachers')
+      navigate('/details');
+  };
   return (
     <div className={styles.container}>
       <span>{id}</span>
       <span className={styles.gap}>|</span>
-      <div
-        onClick={() => {
-          sessionStorage.setItem('activeEntry', id.toString());
-          sessionStorage.setItem('activeCategory', category);
-
-          if (category === 'students' || category === 'teachers')
-            navigate('/details');
-        }}
-      >
+      <div onClick={clickHandler}>
         {entryname ? (
           <span>{entryname}</span>
         ) : (
