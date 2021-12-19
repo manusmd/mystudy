@@ -1,23 +1,20 @@
-# Vite Boilerplate
+# MyStudy
 
-> Quickly bootstrap a new project with Vite Boilerplate.
+> For managing students, teachers, groups and subjects in your tutoring school.
 
-This boilerplate contains all the tools you need to build a modern web app with TypeScript, React, Vite and Storybook.  
-You can use it to quickly bootstrap your project.
-
-ESLint, stylelint, prettier, husky and lintstaged are configured to give you a solid development experience.
+This app helps tutoring schools to manage students, teachers, groups and subjects for your tutoring school.
 
 ## Installing and Developing
 
-First, [create a repository from this template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-repository-from-a-template).
+First, clont [this repository](https://github.com/manusmd/mystudy).
 
-Now you are ready to go:
+To install the dependencies:
 
 ```shell
 npm install
 ```
 
-This will install the dependencies required to run the boilerplate.
+To run the app:
 
 ```shell
 npm run dev
@@ -27,33 +24,26 @@ Boom! These scripts run your server, client and storybook in development mode.
 
 The default PORTS are:
 
-- `3001` for the client
+- `3000` for the client
+- `3001` for the server
 - `6006` for the storybook
 
 If you don't like to call all scripts at once, you can also run:
 
 ```shell
-npm run dev
+npm run dev-client
+npm run dev-server
 npm run storybook
 ```
 
 ## Building
 
-To build the project, run:
+To build and start the project, run:
 
 ```shell
 npm run build
+npm start
 ```
-
-## Tests
-
-A test runner is installed. On GitHub TypeScript, linter and prettier get checked.
-
-## Licensing
-
-MIT
-
----
 
 > GitHub [@manusmd](https://github.com/manusmd) &nbsp;&middot;&nbsp;
 > LinkedIn [@manusmd](www.linkedin.com/in/manusmd)
