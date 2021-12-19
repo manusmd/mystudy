@@ -17,14 +17,14 @@ export default function OverviewSocial({
   const [allEntries, setAllEntries] = useState<StudentsType[] | TeachersType[]>(
     []
   );
-  PullToRefresh.init({
-    mainElement: 'div',
-    onRefresh() {
-      setStudentTeacherFetch(category, setAllEntries);
-    },
-  });
 
   useEffect(() => {
+    PullToRefresh.init({
+      mainElement: 'div',
+      onRefresh() {
+        setStudentTeacherFetch(category, setAllEntries);
+      },
+    });
     let cancel = false;
     if (cancel) return;
     sessionStorage.setItem('addPost', category);
