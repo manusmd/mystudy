@@ -16,9 +16,9 @@ type FormElementProps = {
 };
 
 export default function FormElement({ person }: FormElementProps): JSX.Element {
-  const [surname, setSurname] = useState<string | null>(person.surname);
-  const [lastname, setLastname] = useState<string | null>(person.lastname);
-  const [address, setAddress] = useState<string | null>(person.address);
+  const [surname, setSurname] = useState<string>(person.surname);
+  const [lastname, setLastname] = useState<string>(person.lastname);
+  const [address, setAddress] = useState<string>(person.address);
   const [gender, setGender] = useState<string | undefined>(person.gender);
   const [groups, setGroups] = useState<string[]>(person.groups);
   const [subjects, setSubjects] = useState<string[]>(person.subjects);
