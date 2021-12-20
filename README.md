@@ -6,7 +6,7 @@ This app helps tutoring schools to manage students, teachers, groups and subject
 
 ## Installing and Developing
 
-First, clont [this repository](https://github.com/manusmd/mystudy).
+First, clone [this repository](https://github.com/manusmd/mystudy).
 
 To install the dependencies:
 
